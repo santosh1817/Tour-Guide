@@ -1,5 +1,5 @@
 import React from 'react'
-import Select from './Select'
+import Form from './Form'
 import {Link} from 'react-router-dom'
 
 
@@ -17,7 +17,7 @@ class Days extends React.Component
     {
         let day=this.props.match.params.daysCount
         this.setState({day:day})
-        // console.log(day)
+        console.log(day,'me in mount')
         
     }
     render() {

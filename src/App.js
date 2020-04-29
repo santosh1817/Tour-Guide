@@ -1,5 +1,5 @@
 import React from 'react';
-import Select from './components/Select'
+import Form from  './components/Form'
 import Days from './components/Days'
 import { BrowserRouter, Route, Link, Switch } from 'react-router-dom'
 // import logo from './logo.svg';
@@ -32,12 +32,12 @@ class App extends React.Component
     return(
       <BrowserRouter>
       <div>
-        <Link to='/Select'>Menu Bar </Link>
+        <Link to='/Form'>Menu Bar </Link>
         <Link to='/Days'>Days</Link>
         </div>
     
       <Switch>
-        <Route path='/Select' component={Select} exact={true}/>
+        <Route path='/Form' component={Form} exact={true}/>
         <Route path='/Days/:daysCount' component={Days} exact={true}/>
         
       </Switch>
