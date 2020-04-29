@@ -8,26 +8,47 @@ class Days extends React.Component
     constructor(props){
         super(props)
         this.state={
-            days:[]
+            activity:[],
+            day:0,
+            count:0,
         }
     }
-    render()
+    componentDidMount()
     {
+        let day=this.props.match.params.daysCount
+        this.setState({day:day})
+        // console.log(day)
+        
+    }
+    render() {
+        
+       let  day=this.state.day
+       let row=[]
+         console.log(day,'me in render')
+         for(let i=0;i<day;i++)
+         {
+           console.log( row.push(i))
+         }
+       
         return(
-            
             <div>
-                <h1>{this.props.no_days}</h1>
-                <h2>days page</h2>
-{/*             
-                <h1>days</h1>
-                <ul>
-                    {this.state.days.map(day=>{
-                        console.log(day)
-                    })}
-                </ul>
-                <Link to ='/Days'>days</Link> */}
-                </div>
+                {/* {console.log(this.state.count,'its meddd')} */}
+               {
+                   
+
+               /* /* {    this.state.count && (
+                   <ul>
+                       {this.state.count.map((d=>{
+                           return <button >d</button>
+                       }))}
+                   </ul>
+                    )} */ }
+
+                   
+
+            </div>
            
+            
         )
     }
 }

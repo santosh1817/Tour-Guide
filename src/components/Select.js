@@ -1,5 +1,5 @@
 import React from 'react'
-import Days from './Days'
+// import Days from './Days'
 // import { Multiselect } from 'multiselect-react-dropdown';
 
 class Select extends React.Component
@@ -10,8 +10,8 @@ class Select extends React.Component
         this.state={
             name:'',
         
-            days:'',
-            optionDay:[1,2,3,4,5,6,7],
+            daysCount:0,
+            // optionDay:[1,2,3,4,5,6,7],
             places:['bg','dharwad','gul']
 
         }
@@ -23,7 +23,7 @@ class Select extends React.Component
                  console.log(e.target.value)
                  this.setState(()=>({
                  [e.target.name]:e.target.value,
-                 days:e.target.value
+                //  daysCount:e.target.value
                  }))
              }
              handlePlaceChange=(e)=>{
@@ -33,14 +33,15 @@ class Select extends React.Component
                  this.setState({places:places})
 
              }
-             handleSubmit=()=>{
-                    let days=this.state.days
+             handleSubmit=(e)=>{
+                 e.preventDefault() 
+                    let daysCount=this.state.daysCount
                     console.log('clicked')
-                    console.log(days ,'me')
-                    console.log(this.histroy)
+                    console.log(daysCount ,'me')
+                    // console.log(this.histroy)
                     // <Days/>
 
-                    // this.props.histroy.push('/Days',days)
+                    this.props.history.push(`/Days/${daysCount}`)
              }
     render()
     {
@@ -69,7 +70,7 @@ class Select extends React.Component
                         optionClicked={this.optionClicked.bind(this)}
                         selctedClicked={this.selctedClicked.bind(this)}
                         onChange={this.handleChange}/> */}
-                        <select name="days" multiple onChange={this.handleChange}>
+                        <select name="daysCount" multiple onChange={this.handleChange}>
                             <option > --Select--</option>
                             <option value="1">1</option>
                             <option value="2">2</option>
@@ -80,7 +81,7 @@ class Select extends React.Component
                             <option value="7">7</option>
                         </select><br/>
                         </div><br/>
-                   <button type="button"  onClick={()=>{this.handleSubmit()}}> create Iteranary</button>
+                   <button type="button"  onClick={this.handleSubmit}> create Iteranary</button>
                    {/* <Days no_days={this.state.days}/> */}
                     
 

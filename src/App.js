@@ -38,7 +38,7 @@ class App extends React.Component
     
       <Switch>
         <Route path='/Select' component={Select} exact={true}/>
-        <Route path='/Days' component={Days} exact={true}/>
+        <Route path='/Days/:daysCount' component={Days} exact={true}/>
         
       </Switch>
       </BrowserRouter>
