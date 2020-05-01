@@ -1,8 +1,15 @@
 import React from 'react'
-import Form from './Form'
-import {Link} from 'react-router-dom'
+// import Form from './Form'
+// import {Link} from 'react-router-dom'
+import Select from 'react-select'
 
 
+const actvities=[
+    {value:'Act1',label:'Activity1'},
+    {value:'Act2',label:'Activity2'},
+    {value:'Act3',label:'Activity3'},
+    {value:'Act4',label:'Activity4'}
+]
 class Days extends React.Component
 {
     constructor(props){
@@ -20,36 +27,49 @@ class Days extends React.Component
         console.log(day,'me in mount')
         
     }
+    handleActivity=(activity)=>{
+        this.setState({activity:activity})
+
+
+    }
+    // handleButton=(id)=>{
+    //     id=this.match.params.id
+    //     console.log(id)
+
+    // }
     render() {
-        
-       let  day=this.state.day
-       let row=[]
-         console.log(day,'me in render')
-         for(let i=0;i<day;i++)
-         {
-           console.log( row.push(i))
-         }
-       
+        let row=[]
+        for(let i=1;i<=this.state.day;i++)
+        {
+            // <label>Day {i}</label>
+            row.push(
+
+                
+                <div>
+                    <h2>Days {i}</h2>
+                    <label>Select Activity</label>
+                    
+                    <Select 
+            value={this.state.activity}
+            onChange={this.handleActivity}
+            options={actvities}
+            closeMenuOnSelect={false}
+            hideSelectedoptions={false}
+            isMulti
+            />
+                    
+                </div>
+            )
+        }
         return(
             <div>
-                {/* {console.log(this.state.count,'its meddd')} */}
-               {
-                   
-
-               /* /* {    this.state.count && (
-                   <ul>
-                       {this.state.count.map((d=>{
-                           return <button >d</button>
-                       }))}
-                   </ul>
-                    )} */ }
-
-                   
-
+                 {row}
             </div>
            
-            
         )
-    }
+       
+        
+        
+     }
 }
 export default Days
